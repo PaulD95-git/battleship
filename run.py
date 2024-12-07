@@ -28,3 +28,20 @@ def place_multiple_ships(board, ship_count=3):
             ships.append((row, col))
             board[row][col] = "S"  # Mark the ship position on the board
     return ships
+
+# Function to get player's guess, ensuring valid input
+def get_player_guess(board_size, previous_guesses):
+    while True:
+        try:
+            print(f"Enter a row (0-{board_size - 1}) and column (0-{board_size - 1}).")
+            row = int(input("Guess Row: "))
+            col = int(input("Guess Column: "))
+            if 0 <= row < board_size and 0 <= col < board_size:
+                if (row, col) in previous_guesses:
+                    print("You already guessed there! Try again.")
+                else:
+                    return row, col
+            else:
+                print("Invalid input! Please guess within range.")
+        except ValueError:
+            print("Invalid input! Please enter integers.")
