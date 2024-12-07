@@ -82,3 +82,9 @@ def play_battleship(player_name):
     board_size = 5  # Set board size
     ship_count = 3  # Number of ships
     turns = 10  # Number of turns allowed
+
+    # Initialize the player's board and ships
+    player_board = create_board(board_size)
+    player_ships = place_multiple_ships(player_board, ship_count)
+    player_score = {'hits': 0, 'misses': 0}
+    player_previous_guesses = set()
