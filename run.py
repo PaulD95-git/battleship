@@ -134,3 +134,11 @@ def play_battleship(player_name):
     print(f"Final Score: {player_name} - {player_score['hits']} hits, {player_score['misses']} misses.")
     print(f"Computer - {computer_score['hits']} hits, {computer_score['misses']} misses.")
     return player_score['hits']
+
+    # Function to display a simplified guide
+def how_to_play():
+    print("\nHow to Play Battleship:")
+    print("1. Guess a row and column to attack.")
+    print("2. Hits are marked as 'H'; misses are 'X'.")
+    print("3. Sink all opponent's ships to win!")
+    print("4. Computer takes turns guessing your ships. Good luck!")
