@@ -177,3 +177,7 @@ def main_menu():
             break
         else:
             print("Invalid choice. Enter 1, 2, or 3.")
+
+# Run the game
+if __name__ == "__main__":
+    main_menu()
