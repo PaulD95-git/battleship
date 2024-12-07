@@ -94,3 +94,9 @@ def play_battleship(player_name):
     computer_ships = place_multiple_ships(computer_board, ship_count)
     computer_score = {'hits': 0, 'misses': 0}
     computer_previous_guesses = set()
+
+    # Display initial boards
+    print(f"\nWelcome to Battleship, {player_name}!")
+    print(f"Board size: {board_size}x{board_size}. Ships to sink: {ship_count}.")
+    print_board(player_board, show_ships=True, label="Your Board")  
+    print_board(computer_board, show_ships=False, label="Computer's Board")
