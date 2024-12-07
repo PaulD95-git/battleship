@@ -88,3 +88,9 @@ def play_battleship(player_name):
     player_ships = place_multiple_ships(player_board, ship_count)
     player_score = {'hits': 0, 'misses': 0}
     player_previous_guesses = set()
+
+    # Initialize the computer's board and ships
+    computer_board = create_board(board_size)
+    computer_ships = place_multiple_ships(computer_board, ship_count)
+    computer_score = {'hits': 0, 'misses': 0}
+    computer_previous_guesses = set()
