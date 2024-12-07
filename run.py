@@ -119,3 +119,18 @@ def play_battleship(player_name):
             print("The computer sunk all your ships!")
             break
         print_board(player_board, show_ships=True, label="Your Board")
+
+    # Game over - reveal boards
+    print("\nGame Over!")
+    print_board(player_board, show_ships=True, label="Your Board")
+    print_board(computer_board, show_ships=True, label="Computer's Board")
+    if not computer_ships and not player_ships:
+        print("It's a tie!")
+    elif not computer_ships:
+        print("You won!")
+    elif not player_ships:
+        print("You lost!")
+    
+    print(f"Final Score: {player_name} - {player_score['hits']} hits, {player_score['misses']} misses.")
+    print(f"Computer - {computer_score['hits']} hits, {computer_score['misses']} misses.")
+    return player_score['hits']
