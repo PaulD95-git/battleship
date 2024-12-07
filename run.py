@@ -100,3 +100,22 @@ def play_battleship(player_name):
     print(f"Board size: {board_size}x{board_size}. Ships to sink: {ship_count}.")
     print_board(player_board, show_ships=True, label="Your Board")  
     print_board(computer_board, show_ships=False, label="Computer's Board")
+
+    # Gameplay loop
+    for turn in range(turns):
+        # Player's turn
+        print(f"\nTurn {turn + 1}/{turns} - Your Turn")
+        guess = get_player_guess(board_size, player_previous_guesses)
+        if check_guess(computer_board, guess, computer_ships, player_score, player_previous_guesses, True):
+            print("Congratulations, you sunk all the computer's ships!")
+            break
+        print_board(player_board, show_ships=True, label="Your Board")
+
+        # Computer's turn
+        print(f"\nTurn {turn + 1}/{turns} - Computer's Turn")
+        computer_guess = get_computer_guess(board_size, computer_previous_guesses)
+        print(f"Computer guesses: {computer_guess[0]} {computer_guess[1]}")
+        if check_guess(player_board, computer_guess, player_ships, computer_score, computer_previous_guesses, False):
+            print("The computer sunk all your ships!")
+            break
+        print_board(player_board, show_ships=True, label="Your Board")
