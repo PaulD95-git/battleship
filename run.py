@@ -45,3 +45,13 @@ def get_player_guess(board_size, previous_guesses):
                 print("Invalid input! Please guess within range.")
         except ValueError:
             print("Invalid input! Please enter integers.")
+
+#Function for the computer to randomly guess
+def get_computer_guess(board_size, previous_guesses):
+    while True:
+        # Randomly select row and column for the computer's guess
+        row = random.randint(0, board_size - 1)
+        col = random.randint(0, board_size - 1)
+        if (row, col) not in previous_guesses:
+            return row, col
+
