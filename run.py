@@ -55,3 +55,24 @@ def get_computer_guess(board_size, previous_guesses):
         if (row, col) not in previous_guesses:
             return row, col
 
+# Function to check if a guess is a hit or miss
+def check_guess(board, guess, ships, score, previous_guesses, is_player_turn=True):
+    row, col = guess
+    if guess in previous_guesses:
+        # Return False if the guess was already made
+        return False 
+
+    if guess in ships:
+        print("Hit!")  # A ship was hit
+        ships.remove(guess)  # Remove the ship from the list
+        board[row][col] = "H"  # Mark the board with "H" for hit
+        score['hits'] += 1  # Increment the hit score
+        previous_guesses.add(guess)
+        if not ships:  # All ships have been sunk
+            return True
+    else:
+        print("Miss!")  # The guess missed
+        board[row][col] = "X"  # Mark the board with "X" for miss
+        score['misses'] += 1  # Increment the miss score
+        previous_guesses.add(guess)
+    return False
