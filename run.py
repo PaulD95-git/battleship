@@ -76,3 +76,9 @@ def check_guess(board, guess, ships, score, previous_guesses, is_player_turn=Tru
         score['misses'] += 1  # Increment the miss score
         previous_guesses.add(guess)
     return False
+
+    # Function to play the main game
+def play_battleship(player_name):
+    board_size = 5  # Set board size
+    ship_count = 3  # Number of ships
+    turns = 10  # Number of turns allowed
