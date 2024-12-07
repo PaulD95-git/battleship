@@ -142,3 +142,38 @@ def how_to_play():
     print("2. Hits are marked as 'H'; misses are 'X'.")
     print("3. Sink all opponent's ships to win!")
     print("4. Computer takes turns guessing your ships. Good luck!")
+
+# Main menu to start the game
+def main_menu():
+    print("\n" + "=" * 50)
+    print(" " * 10 + "WELCOME TO BATTLESHIP" + " " * 10)
+    print("=" * 50)
+    
+    player_name = input("\nEnter your name: ").strip() or "Player"
+
+    while True:
+        print("\n" + "=" * 50)
+        print("1. Start Game")
+        print("2. How to Play")
+        print("3. Exit")
+        print("=" * 50)
+        choice = input("Enter your choice (1-3): ")
+
+        if choice == "1":
+            while True:
+                hits = play_battleship(player_name)
+                replay = input("\nDo you want to play again? (yes/no): ").strip().lower()
+                if replay == "no":
+                    print(f"Thanks for playing, {player_name}! Final score: {hits} hits!")
+                    break
+                elif replay == "yes":
+                    print("Restarting the game...\n")
+                else:
+                    print("Invalid input. Please type 'yes' or 'no'.")
+        elif choice == "2":
+            how_to_play()
+        elif choice == "3":
+            print(f"Goodbye, {player_name}!")
+            break
+        else:
+            print("Invalid choice. Enter 1, 2, or 3.")
