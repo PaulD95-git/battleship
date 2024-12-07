@@ -16,3 +16,15 @@ def print_board(board, show_ships=False, label=""):
         else:
             # Hide ships by displaying "~" for ship positions
             print(f"{idx:2} " + " ".join('~' if cell == 'S' else cell for cell in row))
+
+# Function to place ships randomly on the board
+def place_multiple_ships(board, ship_count=3):
+    ships = []
+    while len(ships) < ship_count:
+        # Randomly select row and column
+        row = random.randint(0, len(board) - 1)
+        col = random.randint(0, len(board[0]) - 1)
+        if (row, col) not in ships:  # Ensure no overlapping ships
+            ships.append((row, col))
+            board[row][col] = "S"  # Mark the ship position on the board
+    return ships
