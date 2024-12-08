@@ -115,7 +115,8 @@ def play_battleship(player_name):
         # Player's turn
         print(f"\nTurn {turn + 1}/{turns} - Your Turn")
         guess = get_player_guess(board_size, player_previous_guesses)
-        if check_guess(computer_board, guess, computer_ships, player_score, player_previous_guesses, True):
+        if check_guess(computer_board, guess, computer_ships,
+                       player_score, player_previous_guesses, True):
             print("Congratulations, you sunk all the computer's ships!")
             break
         print_board(player_board, show_ships=True, label="Your Board")
