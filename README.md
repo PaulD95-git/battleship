@@ -1,5 +1,3 @@
-def generate_readme():
-    readme_content = """
 # **BATTLESHIP Game**
 
 Battleship is a Python terminal-based game where players compete against the computer in a battle of strategic guessing. Each player’s objective is to find and sink all of the opponent's ships before their own fleet is destroyed.
@@ -10,7 +8,7 @@ This project is built using Python and runs in a terminal environment. It has be
 
 ## **Live Version**
 
-Play the game live in the terminal [here](#) (add your deployment link).
+Play the game live in the terminal [here](https://battleship-game-1-74fead82ca45.herokuapp.com).
 
 ---
 
@@ -71,6 +69,7 @@ The game manages two separate boards: one for the player and one for the compute
 ### **Key Functions**
 1. **`create_board(size)`**
    - Initializes the game grid with empty cells (`~`).
+   ![alt text](image.png)
 2. **`place_multiple_ships(board, ship_count)`**
    - Randomly places ships on the board.
 3. **`check_guess(board, guess, ships)`**
