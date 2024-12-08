@@ -17,7 +17,7 @@ Play the game live in the terminal [here](https://battleship-game-1-74fead82ca45
 Battleship is based on the classic **pen-and-paper game**, where players guess coordinates to find and sink ships hidden on a grid.
 
 ### **Gameplay Rules**
-1. The board size is 5x5 by default (customizable).
+1. The board size is 5x5 by default.
 2. Both the player and computer have ships randomly placed on their respective boards.
 3. Ships are marked as 'S' on the player's board but hidden on the computer's board.
 4. **Objective:** Sink all of the opponent's ships.
@@ -69,7 +69,6 @@ The game manages two separate boards: one for the player and one for the compute
 ### **Key Functions**
 1. **`create_board(size)`**
    - Initializes the game grid with empty cells (`~`).
-   ![alt text](image.png)
 2. **`place_multiple_ships(board, ship_count)`**
    - Randomly places ships on the board.
 3. **`check_guess(board, guess, ships)`**
