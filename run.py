@@ -144,9 +144,11 @@ def play_battleship(player_name):
         print("You won!")
     elif not player_ships:
         print("You lost!")
-    
-    print(f"Final Score: {player_name} - {player_score['hits']} hits, {player_score['misses']} misses.")
-    print(f"Computer - {computer_score['hits']} hits, {computer_score['misses']} misses.")
+
+    print(f"Final Score: {player_name} - {player_score['hits']} hits, "
+          f"{player_score['misses']} misses.")
+    print(f"Computer - {computer_score['hits']} hits, "
+          f"{computer_score['misses']} misses.")
     return player_score['hits']
 
     # Function to display a simplified guide
