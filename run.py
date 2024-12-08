@@ -1,11 +1,13 @@
-import random 
+import random
 
-#Function to create an empty game board
+
+# Function to create an empty game board
 def create_board(size=5):
-    #Create a size x size grid initialized with "~"
-    return [["~" for _ in range(size)] for _ in rnage(size)]
+    """Create a size x size grid initialized with '~'."""
+    return [["~" for _ in range(size)] for _ in range(size)]
 
-#Function to display the game board
+
+# Function to display the game board
 def print_board(board, show_ships=False, label=""):
     """Display the game board."""
     print(f"\n{label}")
@@ -20,8 +22,10 @@ def print_board(board, show_ships=False, label=""):
             )
         print(f"{idx:2} {row_content}")
 
+
 # Function to place ships randomly on the board
 def place_multiple_ships(board, ship_count=3):
+    """Randomly place ships on the board."""
     ships = []
     while len(ships) < ship_count:
         # Randomly select row and column
@@ -31,6 +35,7 @@ def place_multiple_ships(board, ship_count=3):
             ships.append((row, col))
             board[row][col] = "S"  # Mark the ship position on the board
     return ships
+
 
 # Function to get player's guess, ensuring valid input
 def get_player_guess(board_size, previous_guesses):
@@ -53,8 +58,10 @@ def get_player_guess(board_size, previous_guesses):
         except ValueError:
             print("Invalid input! Please enter integers.")
 
-#Function for the computer to randomly guess
+
+# Function for the computer to randomly guess
 def get_computer_guess(board_size, previous_guesses):
+    """Generate a random guess for the computer."""
     while True:
         # Randomly select row and column for the computer's guess
         row = random.randint(0, board_size - 1)
@@ -62,13 +69,15 @@ def get_computer_guess(board_size, previous_guesses):
         if (row, col) not in previous_guesses:
             return row, col
 
+
 # Function to check if a guess is a hit or miss
 def check_guess(board, guess, ships, score, previous_guesses,
                 is_player_turn=True):
+    """Check if the guess hits or misses a ship."""
     row, col = guess
     if guess in previous_guesses:
         # Return False if the guess was already made
-        return False 
+        return False
 
     if guess in ships:
         print("Hit!")  # A ship was hit
@@ -85,8 +94,10 @@ def check_guess(board, guess, ships, score, previous_guesses,
         previous_guesses.add(guess)
     return False
 
-    # Function to play the main game
+
+# Function to play the main game
 def play_battleship(player_name):
+    """Play the Battleship game."""
     board_size = 5  # Set board size
     ship_count = 3  # Number of ships
     turns = 10  # Number of turns allowed
@@ -151,13 +162,16 @@ def play_battleship(player_name):
           f"{computer_score['misses']} misses.")
     return player_score['hits']
 
-    # Function to display a simplified guide
+
+# Function to display a simplified guide
 def how_to_play():
+    """Display instructions for the game."""
     print("\nHow to Play Battleship:")
     print("1. Guess a row and column to attack.")
     print("2. Hits are marked as 'H'; misses are 'X'.")
     print("3. Sink all opponent's ships to win!")
     print("4. Computer takes turns guessing your ships. Good luck!")
+
 
 # Main menu to start the game
 def main_menu():
@@ -198,6 +212,7 @@ def main_menu():
             break
         else:
             print("Invalid choice. Enter 1, 2, or 3.")
+
 
 # Run the game
 if __name__ == "__main__":
