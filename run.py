@@ -161,10 +161,11 @@ def how_to_play():
 
 # Main menu to start the game
 def main_menu():
+    """Display the main menu and handle user input."""
     print("\n" + "=" * 50)
     print(" " * 10 + "WELCOME TO BATTLESHIP" + " " * 10)
     print("=" * 50)
-    
+
     player_name = input("\nEnter your name: ").strip() or "Player"
 
     while True:
@@ -178,14 +179,18 @@ def main_menu():
         if choice == "1":
             while True:
                 hits = play_battleship(player_name)
-                replay = input("\nDo you want to play again? (yes/no): ").strip().lower()
-                if replay == "no":
-                    print(f"Thanks for playing, {player_name}! Final score: {hits} hits!")
-                    break
-                elif replay == "yes":
-                    print("Restarting the game...\n")
-                else:
-                    print("Invalid input. Please type 'yes' or 'no'.")
+                while True:
+                    replay = input("\nDo you want to play again? (yes/no): "
+                                   ).strip().lower()
+                    if replay == "no":
+                        print(f"Thanks for playing, {player_name}! "
+                              f"Final score: {hits} hits!")
+                        return
+                    elif replay == "yes":
+                        print("Restarting the game...\n")
+                        break
+                    else:
+                        print("Invalid input. Please type 'yes' or 'no'.")
         elif choice == "2":
             how_to_play()
         elif choice == "3":
