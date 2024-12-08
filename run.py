@@ -63,7 +63,8 @@ def get_computer_guess(board_size, previous_guesses):
             return row, col
 
 # Function to check if a guess is a hit or miss
-def check_guess(board, guess, ships, score, previous_guesses, is_player_turn=True):
+def check_guess(board, guess, ships, score, previous_guesses,
+                is_player_turn=True):
     row, col = guess
     if guess in previous_guesses:
         # Return False if the guess was already made
@@ -104,8 +105,9 @@ def play_battleship(player_name):
 
     # Display initial boards
     print(f"\nWelcome to Battleship, {player_name}!")
-    print(f"Board size: {board_size}x{board_size}. Ships to sink: {ship_count}.")
-    print_board(player_board, show_ships=True, label="Your Board")  
+    print(f"Board size: {board_size}x{board_size}.")
+    print(f"Ships to sink: {ship_count}.")
+    print_board(player_board, show_ships=True, label="Your Board")
     print_board(computer_board, show_ships=False, label="Computer's Board")
 
     # Gameplay loop
