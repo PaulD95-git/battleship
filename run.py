@@ -34,9 +34,13 @@ def place_multiple_ships(board, ship_count=3):
 
 # Function to get player's guess, ensuring valid input
 def get_player_guess(board_size, previous_guesses):
+    """Get a valid player's guess."""
     while True:
         try:
-            print(f"Enter a row (0-{board_size - 1}) and column (0-{board_size - 1}).")
+            print(
+                f"Enter a row (0-{board_size - 1}) and "
+                f"column (0-{board_size - 1})."
+            )
             row = int(input("Guess Row: "))
             col = int(input("Guess Column: "))
             if 0 <= row < board_size and 0 <= col < board_size:
