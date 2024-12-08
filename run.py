@@ -7,15 +7,18 @@ def create_board(size=5):
 
 #Function to display the game board
 def print_board(board, show_ships=False, label=""):
+    """Display the game board."""
     print(f"\n{label}")
-    print("   " + " ".join(str(i) for i in range(len(board[0]))))  # Print column numbers
+    col_numbers = "   " + " ".join(str(i) for i in range(len(board[0])))
+    print(col_numbers)
     for idx, row in enumerate(board):
         if show_ships:
-            # Show the entire board content (including ships marked as "S")
-            print(f"{idx:2} " + " ".join(row))
+            row_content = " ".join(row)
         else:
-            # Hide ships by displaying "~" for ship positions
-            print(f"{idx:2} " + " ".join('~' if cell == 'S' else cell for cell in row))
+            row_content = " ".join(
+                '~' if cell == 'S' else cell for cell in row
+            )
+        print(f"{idx:2} {row_content}")
 
 # Function to place ships randomly on the board
 def place_multiple_ships(board, ship_count=3):
